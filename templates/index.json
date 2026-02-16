@@ -208,6 +208,48 @@
         "button_text": "BUY NOW",
         "button_link": ""
       }
+    },
+    "designer_clothes_section_fAAWWy": {
+      "type": "designer-clothes-section",
+      "blocks": {
+        "designer_item_QKphmh": {
+          "type": "designer_item",
+          "settings": {
+            "image": "shopify://shop_images/designer-clothes-img-1.png",
+            "title": "Accessories",
+            "description": "Complete your ensemble with designer accessories such as handbags, scarves, belts, and hats.",
+            "bg_class": "bg-primary"
+          }
+        },
+        "designer_item_mz96Xq": {
+          "type": "designer_item",
+          "settings": {
+            "image": "shopify://shop_images/designer-clothes-img-2.png",
+            "title": "Accessories",
+            "description": "Explore a stunning range of designer dresses, including evening gowns and chic day dresses.",
+            "bg_class": "bg-primary"
+          }
+        },
+        "designer_item_B3xtyd": {
+          "type": "designer_item",
+          "settings": {
+            "image": "shopify://shop_images/designer-clothes-img-3.png",
+            "title": "Accessories",
+            "description": "Browse luxurious designer coats, jackets, and blazers to stay stylishly warm during colder seasons.",
+            "bg_class": "bg-primary"
+          }
+        }
+      },
+      "block_order": [
+        "designer_item_QKphmh",
+        "designer_item_mz96Xq",
+        "designer_item_B3xtyd"
+      ],
+      "name": "Designer Clothes",
+      "settings": {
+        "heading": "Designer Clothes For You",
+        "subheading": "Immerse yourself in the world of luxury fashion with our meticulously crafted designer clothes!"
+      }
     }
   },
   "order": [
@@ -218,6 +260,7 @@
     "banner_section_fajbeG",
     "best_selling_section_mphre4",
     "our_product_section_HLWKVJ",
-    "exclusive_offer_section_AHg8PK"
+    "exclusive_offer_section_AHg8PK",
+    "designer_clothes_section_fAAWWy"
   ]
 }

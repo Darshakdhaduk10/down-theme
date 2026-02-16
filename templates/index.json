@@ -196,6 +196,18 @@
         "new_collection": "new-arrivals",
         "accessories_collection": "accessories"
       }
+    },
+    "exclusive_offer_section_Wrearc": {
+      "type": "exclusive-offer-section",
+      "name": "Exclusive Offer",
+      "settings": {
+        "left_image": "shopify://shop_images/Left-exclusive-img.png",
+        "heading": "Exclusive offer",
+        "description": "Unlock the ultimate style upgrade with our exclusive offer Enjoy savings of up to 40% off on our latest New Arrivals",
+        "target_date": "2026-02-01T00:00:00",
+        "button_text": "BUY NOW",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -205,6 +217,7 @@
     "collection_list_iAdmPY",
     "banner_section_fajbeG",
     "best_selling_section_mphre4",
-    "our_product_section_HLWKVJ"
+    "our_product_section_HLWKVJ",
+    "exclusive_offer_section_Wrearc"
   ]
 }

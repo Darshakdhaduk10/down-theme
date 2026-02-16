@@ -185,6 +185,17 @@
         "button_text": "See all",
         "button_link": ""
       }
+    },
+    "our_product_section_HLWKVJ": {
+      "type": "our-product-section",
+      "name": "Our Products (Tabs)",
+      "settings": {
+        "heading": "Our Products",
+        "sale_collection": "sale-collection",
+        "hot_collection": "hot",
+        "new_collection": "new-arrivals",
+        "accessories_collection": "accessories"
+      }
     }
   },
   "order": [
@@ -193,6 +204,7 @@
     "learn_Q8e8Xe",
     "collection_list_iAdmPY",
     "banner_section_fajbeG",
-    "best_selling_section_mphre4"
+    "best_selling_section_mphre4",
+    "our_product_section_HLWKVJ"
   ]
 }

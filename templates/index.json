@@ -138,6 +138,53 @@
         "button_link": "",
         "banner_image": "shopify://shop_images/BNR-Right-img.png"
       }
+    },
+    "best_selling_section_mphre4": {
+      "type": "best-selling-section",
+      "blocks": {
+        "product_card_gRP9NM": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/Selling-img-1.png",
+            "title": "Regular Fit Long Sleeve Top",
+            "price": "$38.99",
+            "rating": "5.0",
+            "bg_color": "bg-secondary-dark"
+          }
+        },
+        "product_card_xFpxg6": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/Selling-img-2.png",
+            "title": "Regular Fit Long Sleeve Top",
+            "price": "$38.99",
+            "rating": "5.0",
+            "bg_color": "bg-secondary-dark"
+          }
+        },
+        "product_card_hFLEHD": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/Selling-img-3.png",
+            "title": "Regular Fit Long Sleeve Top",
+            "price": "$38.99",
+            "rating": "5.0",
+            "bg_color": "bg-secondary-dark"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_gRP9NM",
+        "product_card_xFpxg6",
+        "product_card_hFLEHD"
+      ],
+      "name": "Best Selling",
+      "settings": {
+        "heading": "Best selling",
+        "description": "Get in on the trend with our curated selection of best-selling styles.",
+        "button_text": "See all",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -145,6 +192,7 @@
     "featured_collection",
     "learn_Q8e8Xe",
     "collection_list_iAdmPY",
-    "banner_section_fajbeG"
+    "banner_section_fajbeG",
+    "best_selling_section_mphre4"
   ]
 }

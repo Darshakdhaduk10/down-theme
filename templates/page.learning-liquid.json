@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -21,3 +22,6 @@
     "main"
   ]
 }
+=======
+{"sections":{"main":{"type":"main-page","settings":{"padding_top":28,"padding_bottom":28}}},"order":["main"]}
+>>>>>>> ce37314d28f923d2cbf83318cbd64534e722568f

@@ -92,6 +92,7 @@
           </div>
           <p>{{ product.description | strip_html | truncate: 50 }}</p>
 
+<<<<<<< HEAD
           <div class="variant-list">
             <h4>Available Variants:</h4>
 
@@ -99,6 +100,10 @@
               <p>{{ forloop.index }}. {{ variant.title }}</p>
             {% endfor %}
           </div>
+=======
+
+
+>>>>>>> ce37314d28f923d2cbf83318cbd64534e722568f
 
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -116,6 +121,7 @@
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
+<<<<<<< HEAD
 
                   {% for product in collection.products %}
                   <h2>{{ product.title }}</h2>
@@ -136,6 +142,8 @@
                     <p style="color: red">Stock Out</p>
                   {% endif %}
 
+=======
+>>>>>>> ce37314d28f923d2cbf83318cbd64534e722568f
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -154,8 +162,12 @@
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+<<<<<<< HEAD
                   </div>
                   |
+=======
+                  </div>|
+>>>>>>> ce37314d28f923d2cbf83318cbd64534e722568f
                 {%- endif -%}
                 {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
                   <div class="product__tax caption rte">

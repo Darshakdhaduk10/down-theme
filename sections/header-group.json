@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -90,3 +91,6 @@
     "custom_liquid_kVVfwF"
   ]
 }
+=======
+{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-bar-0":{"type":"announcement","settings":{"text":"Welcome to our store","link":""}}},"block_order":["announcement-bar-0"],"settings":{"auto_rotate":false,"change_slides_speed":5,"color_scheme":"scheme-1","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","settings":{"logo_position":"middle-left","mobile_logo_position":"center","menu":"main-menu","menu_type_desktop":"dropdown","sticky_header_type":"on-scroll-up","show_line_separator":true,"color_scheme":"scheme-1","menu_color_scheme":"scheme-1","enable_country_selector":true,"enable_language_selector":true,"enable_customer_avatar":true,"margin_bottom":0,"padding_top":20,"padding_bottom":20}},"learn_YCFbAn":{"type":"learn","disabled":true,"name":"learn-liquid","settings":{"heading":"Hello friends i'm liquid."}},"fontface_section_kPkETz":{"type":"fontface-section","disabled":true,"name":"Font Picker Section","settings":{"heading_font":"besley_n4","paragraph_font":"abril_fatface_n4","heading_text":"Hello darshak. How are you ? ...","paragraph_text":"I'M Fine..."}},"custom_liquid_kVVfwF":{"type":"custom-liquid","disabled":true,"name":"t:sections.custom-liquid.presets.name","settings":{"custom_liquid":"","color_scheme":"","padding_top":40,"padding_bottom":52}}},"order":["announcement-bar","header","learn_YCFbAn","fontface_section_kPkETz","custom_liquid_kVVfwF"]}
+>>>>>>> ce37314d28f923d2cbf83318cbd64534e722568f

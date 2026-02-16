@@ -143,10 +143,13 @@
             class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
           >
             <div class="loading-overlay gradient"></div>
+<<<<<<< HEAD
             {% for product in collection.products %}
               <p>Product Number: {{ forloop.index }}</p>
               <h3>{{ product.title }}</h3>
             {% endfor %}
+=======
+>>>>>>> ce37314d28f923d2cbf83318cbd64534e722568f
             <ul
               id="product-grid"
               data-id="{{ section.id }}"

@@ -1,0 +1,179 @@
+{{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<section class="exclusive pt-80 pt-sm-80 pt-md-80">
+  <div class="container">
+    <div class="row exclusive-pb col-12 bg-primary row-gap-5">
+
+      <!-- LEFT IMAGE -->
+      <div class="col-12 col-lg-6 left-exclusive-img position-relative d-flex justify-content-center">
+        <svg width="190" height="131" viewBox="0 0 190 131" fill="none"
+          xmlns="http://www.w3.org/2000/svg" class="svg-1 position-absolute z-1">
+          <rect width="190" height="131" fill="#DFFBEA" fill-opacity="0.5" />
+        </svg>
+
+        <svg width="156" height="110" viewBox="0 0 156 110" fill="none"
+          xmlns="http://www.w3.org/2000/svg" class="svg-2 position-absolute z-2">
+          {% for i in (1..20) %}
+            <circle cx="{{ forloop.index0 | modulo: 5 | times: 37 | plus: 4 }}"
+                    cy="{{ forloop.index0 | divided_by: 5 | times: 34 | plus: 4 }}"
+                    r="4" fill="#328B56" />
+          {% endfor %}
+        </svg>
+
+        {% if section.settings.left_image != blank %}
+          <img
+            src="{{ section.settings.left_image | image_url }}"
+            width = ""
+            height = ""
+            alt="exclusive-offer"
+            class="img-fluid d-block z-3">
+            
+        {% endif %}
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div
+        class="col-12 col-lg-6 right-con d-flex flex-column align-items-center align-items-lg-start text-center">
+
+        <h2 class="font-roboto-slab fw-bold fs-4 font-primary">
+          {{ section.settings.heading }}
+        </h2>
+
+        <p class="font-poppins fw-medium fs-8 font-primary">
+          {{ section.settings.description }}
+        </p>
+
+        <!-- COUNTER -->
+        <div
+          class="counter d-flex flex-wrap col-12 justify-content-center justify-content-lg-start"
+          id="counter">
+
+          <div class="time bg-white text-center d-flex flex-column justify-content-center align-items-center col-6 col-lg-3">
+            <h5 class="font-poppins fw-semibold fs-5 font-primary" data-days>00</h5>
+            <p class="font-poppins fw-medium fs-9 font-primary">Days</p>
+          </div>
+
+          <div class="time bg-white text-center d-flex flex-column justify-content-center align-items-center col-6 col-lg-3">
+            <h5 class="font-poppins fw-semibold fs-5 font-primary" data-hours>00</h5>
+            <p class="font-poppins fw-medium fs-9 font-primary">Hours</p>
+          </div>
+
+          <div class="time bg-white text-center d-flex flex-column justify-content-center align-items-center col-6 col-lg-3">
+            <h5 class="font-poppins fw-semibold fs-5 font-primary" data-minutes>00</h5>
+            <p class="font-poppins fw-medium fs-9 font-primary">Min</p>
+          </div>
+
+          <div class="time bg-white text-center d-flex flex-column justify-content-center align-items-center col-6 col-lg-3">
+            <h5 class="font-poppins fw-semibold fs-5 font-primary" data-seconds>00</h5>
+            <p class="font-poppins fw-medium fs-9 font-primary">Sec</p>
+          </div>
+        </div>
+
+        {% if section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}"
+             class="btn-last fs-20 fw-medium font-poppins text-decoration-none">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JS : SAME LOGIC -->
+<script>
+  // Set target date = today + 28 days
+  const nowDate = new Date();
+  nowDate.setDate(nowDate.getDate() + 28);
+  const targetDate = nowDate.getTime();
+  
+  const daysEl = document.querySelector("[data-days]");
+  const hoursEl = document.querySelector("[data-hours]");
+  const minutesEl = document.querySelector("[data-minutes]");
+  const secondsEl = document.querySelector("[data-seconds]");
+  
+  function updateCounter() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+  
+    if (diff <= 0) {
+      daysEl.innerText = "00";
+      hoursEl.innerText = "00";
+      minutesEl.innerText = "00";
+      secondsEl.innerText = "00";
+      return;
+    }
+  
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+  
+    daysEl.innerText = String(days).padStart(2, "0");
+    hoursEl.innerText = String(hours).padStart(2, "0");
+    minutesEl.innerText = String(minutes).padStart(2, "0");
+    secondsEl.innerText = String(seconds).padStart(2, "0");
+  }
+  
+  updateCounter();
+  setInterval(updateCounter, 1000);
+  </script>
+  
+
+{% schema %}
+{
+  "name": "Exclusive Offer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Exclusive offer"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Unlock the ultimate style upgrade with our exclusive offer Enjoy savings of up to 40% off on our latest New Arrivals"
+    },
+    {
+      "type": "text",
+      "id": "target_date",
+      "label": "Offer End Date (YYYY-MM-DDTHH:MM:SS)",
+      "default": "2026-02-01T00:00:00"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "BUY NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Exclusive Offer"
+    }
+  ]
+}
+{% endschema %}

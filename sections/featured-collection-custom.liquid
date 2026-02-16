@@ -1,0 +1,93 @@
+{% assign selected_collection = collections[section.settings.collection] %}
+
+{% if selected_collection != blank %}
+  <section class="custom-featured-collection">
+    
+    {% if section.settings.title != blank %}
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    {% if selected_collection.products.size > 0 %}
+      <div class="product-grid">
+        {% for product in selected_collection.products limit: 4 %}
+          <div class="product-card">
+
+            {% if product.featured_image %}
+              {% comment %} <img
+                src="{{ product.featured_image | image_url: width: 500 }}"
+                alt="{{ product.title }}"   
+                loading="lazy"
+              > {% endcomment %}
+            {% endif %}
+
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-message">No products found.</p>
+    {% endif %}
+
+  </section>
+{% else %}
+  <p>Please select a collection.</p>
+{% endif %}
+
+<style>
+.custom-featured-collection {
+  padding: 40px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Featured Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Featured Collection"
+    }
+  ]
+}
+{% endschema %}

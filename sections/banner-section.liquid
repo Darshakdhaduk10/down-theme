@@ -1,0 +1,113 @@
+{{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<section class="bg-primary py-1 py-sm-1">
+  <div class="container">
+    <div class="row col-12 gap-5 gap-lg-0 banner-row">
+
+      <!-- LEFT CONTENT -->
+      <div class="bnr-left-con col-12 col-lg-6 text-center text-center-lg-start">
+        <h1 class="font-rufina fw-bold fs-1 font-primary pb-4">
+          {{ section.settings.heading }}
+        </h1>
+
+        <p class="font-poppins fw-medium fs-7 font-secondary">
+          {{ section.settings.description }}
+        </p>
+
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="btn-fourth font-poppins fw-medium fs-9 text-uppercase text-decoration-none">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="col-12 col-lg-6 nr-img d-flex justify-content-center">
+        <div class="bnr-right-img bg-secondary position-relative">
+
+          {% if section.settings.banner_image != blank %}
+            <img
+              src="{{ section.settings.banner_image | image_url }}"
+              alt="Banner-img"
+              class="img-fluid d-block w-100 object-fit-cover">
+          {% endif %}
+
+          <!-- TOP SVG -->
+          <svg class="bnr-top-design position-absolute" height="110" viewBox="0 0 119 110" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            {% for i in (1..20) %}
+              {% assign x = forloop.index0 | modulo: 4 | times: 37 | plus: 4 %}
+              {% assign y = forloop.index0 | divided_by: 4 | times: 34 | plus: 4 %}
+              <circle cx="{{ x }}" cy="{{ y }}" r="4" fill="#267144" />
+            {% endfor %}
+          </svg>
+
+          <!-- BOTTOM SVG -->
+          <svg class="bnr-bouttom-design position-absolute" height="110" viewBox="0 0 119 110" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            {% for i in (1..20) %}
+              {% assign x = forloop.index0 | modulo: 4 | times: 37 | plus: 4 %}
+              {% assign y = forloop.index0 | divided_by: 4 | times: 34 | plus: 4 %}
+              <circle cx="{{ x }}" cy="{{ y }}" r="4" fill="#267144" />
+            {% endfor %}
+          </svg>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Banner Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Discover and Find Your Own Fashion!"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Explore our curated collection of stylish clothing and accessories tailored to your unique taste."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Banner"
+    }
+  ]
+}
+{% endschema %}

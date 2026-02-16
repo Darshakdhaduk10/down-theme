@@ -1,0 +1,67 @@
+{%- liquid
+  assign heading_font = section.settings.heading_font
+  assign paragraph_font = section.settings.paragraph_font
+  assign heading_texts = section.settings.heading_text
+  assign paragraph_texts = section.settings.paragraph_text
+-%}
+
+<style>
+    {{ heading_font | font_face }}
+    {{ paragraph_font | font_face }}
+
+    .text-center {
+        text-align: center;
+    }
+    .change-font p {
+      font-size: 24px;
+  }
+    .change-font h1{
+        font-family:{{ heading_font.family }}, {{ heading_font.fallback_families }}
+    }
+      .change-font p{
+        font-family:{{ paragraph_font.family }}, {{ paragraph_font.fallback_families }}
+    }
+</style>
+
+<div class="change-font text-center">
+  <h1>{{ heading_texts }}</h1>
+  <p class="text-center">{{ paragraph_texts }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Font Picker",
+  "settings": [
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "paragraph_font",
+      "label": "Paragraph Font",
+      "default": "helvetica_n4"
+    },
+    {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Texts",
+        "default": "Hello darshak. How are you ?"
+    },
+    {
+        "type": "text",
+        "id": "paragraph_text",
+        "label": "Paragraph Texts",
+        "default": "I'M Fine."
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Font Picker Section"
+    }
+  ]
+}
+{% endschema %}

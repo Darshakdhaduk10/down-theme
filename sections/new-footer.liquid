@@ -1,0 +1,205 @@
+{{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<footer class="footer-bg mt-198">
+  <div class="container">
+    <div class="row col-12 footer-gap row-gap-md-4">
+
+      <!-- Logo + Social -->
+      <div class="col-12 col-lg-3 col-md-4">
+        <div class="footer-logo">
+          {% if section.settings.logo_svg != blank %}
+            {{ section.settings.logo_svg }}
+          {% endif %}
+        </div>
+
+        <p class="font-roboto-slab fw-medium fs-8 text-white footer-title">
+          {{ section.settings.social_title }}
+        </p>
+
+        <div class="footer-icons d-flex gap-36">
+          {% for block in section.blocks %}
+            {% if block.type == 'social' %}
+              <a href="{{ block.settings.link }}" target="_blank">
+                {{ block.settings.icon_svg }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Menu 1 -->
+      <div class="col-12 col-lg-2 col-md-4">
+        <ul class="d-flex flex-column gap-18">
+          <li class="list-unstyled pb-7">
+            <span class="font-roboto-slab fw-medium fs-8 text-uppercase text-white">
+              {{ section.settings.menu1_title }}
+            </span>
+          </li>
+          {% for link in linklists[section.settings.menu_1].links %}
+            <li class="list-unstyled">
+              <a href="{{ link.url }}"
+                 class="font-poppins fw-medium fs-20 text-decoration-none font-light-secondary">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Menu 2 -->
+      <div class="col-12 col-lg-2 col-md-4">
+        <ul class="d-flex flex-column gap-18">
+          <li class="list-unstyled pb-7">
+            <span class="font-roboto-slab fw-medium fs-8 text-uppercase text-white">
+              {{ section.settings.menu2_title }}
+            </span>
+          </li>
+          {% for link in linklists[section.settings.menu_2].links %}
+            <li class="list-unstyled">
+              <a href="{{ link.url }}"
+                 class="font-poppins fw-medium fs-20 text-decoration-none font-light-secondary">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-12 col-lg-5 col-md-6">
+        <ul class="pb-38">
+          <li class="list-unstyled pb-7">
+            <span class="font-roboto-slab fw-medium fs-8 text-uppercase text-white">
+              {{ section.settings.newsletter_title }}
+            </span>
+          </li>
+        </ul>
+
+        <form method="post" action="/contact#footer-newsletter" class="input-box d-flex align-items-center">
+          <input type="email" name="contact[email]" placeholder="{{ section.settings.email_placeholder }}" required class="text-white">
+          <button type="submit" class="coursor-pointer font-poppins fw-medium fs-20">
+            {{ section.settings.button_text }}
+          </button>
+        </form>
+      </div>
+
+      <!-- Bottom -->
+      <div class="col-12 d-flex flex-wrap align-items-center footer-bouttom justify-content-between gap-20">
+        <div class="col-12 col-xl-9">
+          <span class="footer-line"></span>
+        </div>
+
+        <div class="col-xl-3 d-flex justify-content-end">
+          <ul class="d-flex flex-wrap gap-36">
+            {% for link in linklists[section.settings.bottom_menu].links %}
+              <li class="list-unstyled">
+                <a href="{{ link.url }}"
+                   class="text-decoration-none text-white font-poppins fw-semibold fs-20">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "logo_svg",
+      "label": "Logo SVG"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Social Title",
+      "default": "Social Media"
+    },
+    {
+      "type": "text",
+      "id": "menu1_title",
+      "label": "Menu 1 Title",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu2_title",
+      "label": "Menu 2 Title",
+      "default": "Company"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "Stay up to date"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SUBMIT"
+    },
+    {
+      "type": "link_list",
+      "id": "bottom_menu",
+      "label": "Bottom Menu"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social",
+      "name": "Social Icon",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG Icon"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Social Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}

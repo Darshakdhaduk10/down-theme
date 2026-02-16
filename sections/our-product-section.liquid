@@ -1,0 +1,322 @@
+{% comment %} {{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+{{ 'product-tabs.js' | asset_url | script_tag }}
+
+<section>
+  <div class="container">
+
+    <!-- TITLE -->
+    <div class="our-product-title pt-80 pt-sm-80 pt-md-80">
+      <h2 class="font-roboto-slab fw-medium fs-3 font-primary text-center">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
+
+    <!-- TABS -->
+    <div class="product-deil">
+      <ul class="d-flex flex-wrap col-12 justify-content-center">
+        <li class="font-poppins fs-8 list-unstyled">
+          <a href="#sale-tab" class="text-decoration-none titile-color active" data-toggle="tab">Sale</a>
+        </li>
+        <li class="font-poppins fs-8 list-unstyled">
+          <a href="#hot-tab" class="text-decoration-none titile-color" data-toggle="tab">Hot</a>
+        </li>
+        <li class="font-poppins fs-8 list-unstyled">
+          <a href="#new-tab" class="text-decoration-none titile-color" data-toggle="tab">New Arrivals</a>
+        </li>
+        <li class="font-poppins fs-8 list-unstyled">
+          <a href="#accessories-tab" class="text-decoration-none titile-color" data-toggle="tab">Accessories</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SALE -->
+    <div class="row main-product col-12 align-items-stretch show" id="sale-tab">
+      {% for block in section.blocks %}
+        {% if block.settings.tab == 'sale' %}
+        <div class="col-3" {{ block.shopify_attributes }}>
+          <div class="product-img">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url }}" class="img-fluid d-block w-100">
+            {% endif %}
+          </div>
+          <div class="product-con text-center">
+            <p class="font-poppins fw-semibold fs-8 titile-color">
+              {{ block.settings.title }}
+            </p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- HOT -->
+    <div class="row main-product col-12 align-items-stretch" id="hot-tab">
+      {% for block in section.blocks %}
+        {% if block.settings.tab == 'hot' %}
+        <div class="col-3" {{ block.shopify_attributes }}>
+          <div class="product-img">
+            <img src="{{ block.settings.image | image_url }}" class="img-fluid d-block w-100">
+          </div>
+          <div class="product-con text-center">
+            <p class="font-poppins fw-semibold fs-8 titile-color">
+              {{ block.settings.title }}
+            </p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- NEW -->
+    <div class="row main-product col-12 align-items-stretch" id="new-tab">
+      {% for block in section.blocks %}
+        {% if block.settings.tab == 'new' %}
+        <div class="col-3" {{ block.shopify_attributes }}>
+          <div class="product-img">
+            <img src="{{ block.settings.image | image_url }}" class="img-fluid d-block w-100">
+          </div>
+          <div class="product-con text-center">
+            <p class="font-poppins fw-semibold fs-8 titile-color">
+              {{ block.settings.title }}
+            </p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- ACCESSORIES -->
+    <div class="row main-product col-12 align-items-stretch" id="accessories-tab">
+      {% for block in section.blocks %}
+        {% if block.settings.tab == 'accessories' %}
+        <div class="col-3" {{ block.shopify_attributes }}>
+          <div class="product-img">
+            <img src="{{ block.settings.image | image_url }}" class="img-fluid d-block w-100">
+          </div>
+          <div class="product-con text-center">
+            <p class="font-poppins fw-semibold fs-8 titile-color">
+              {{ block.settings.title }}
+            </p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our Products Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Our Products"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "tab",
+          "label": "Tab",
+          "options": [
+            { "value": "sale", "label": "Sale" },
+            { "value": "hot", "label": "Hot" },
+            { "value": "new", "label": "New Arrivals" },
+            { "value": "accessories", "label": "Accessories" }
+          ],
+          "default": "sale"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title",
+          "default": "Product name"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Our Products Tabs",
+      "blocks": [
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" }
+      ]
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+
+
+
+
+{{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<section>
+  <div class="container">
+
+    <!-- Title -->
+    <div class="our-product-title pt-80 pt-sm-80 pt-md-80">
+      <h2 class="font-roboto-slab fw-medium fs-3 font-primary text-center">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
+
+    <!-- Tabs -->
+    <div class="product-deil">
+      <ul class="d-flex flex-wrap col-12 justify-content-center">
+        <li class="font-poppins fs-8 list-unstyled text-uppercase d-flex justify-content-center">
+          <a href="#sale-tab" class="text-decoration-none titile-color active" data-toggle="tab">Sale</a>
+        </li>
+        <li class="font-poppins fs-8 list-unstyled text-uppercase d-flex justify-content-center">
+          <a href="#hot-tab" class="text-decoration-none titile-color" data-toggle="tab">Hot</a>
+        </li>
+        <li class="font-poppins fs-8 list-unstyled text-uppercase d-flex justify-content-center">
+          <a href="#new-tab" class="text-decoration-none titile-color" data-toggle="tab">New Arrivals</a>
+        </li>
+        <li class="font-poppins fs-8 list-unstyled text-uppercase d-flex justify-content-center">
+          <a href="#accessories-tab" class="text-decoration-none titile-color" data-toggle="tab">Accessories</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Products -->
+    <div>
+
+      <!-- SALE -->
+      <div class="row main-product col-12 align-items-stretch show" id="sale-tab">
+        {% for product in collections[section.settings.sale_collection].products limit: 8 %}
+          {% render 'our-product-card', product: product %}
+        {% endfor %}
+      </div>
+
+      <!-- HOT -->
+      <div class="row main-product col-12 align-items-stretch" id="hot-tab">
+        {% for product in collections[section.settings.hot_collection].products limit: 8 %}
+          {% render 'our-product-card', product: product %}
+        {% endfor %}
+      </div>
+
+      <!-- NEW -->
+      <div class="row main-product col-12 align-items-stretch" id="new-tab">
+        {% for product in collections[section.settings.new_collection].products limit: 8 %}
+          {% render 'our-product-card', product: product %}
+        {% endfor %}
+      </div>
+
+      <!-- ACCESSORIES -->
+      <div class="row main-product col-12 align-items-stretch" id="accessories-tab">
+        {% for product in collections[section.settings.accessories_collection].products limit: 8 %}
+          {% render 'our-product-card', product: product %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JS SAME TO SAME -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabLinks = document.querySelectorAll('.product-deil a[data-toggle="tab"]');
+
+  tabLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      tabLinks.forEach(function (tab) {
+        tab.classList.remove("active");
+      });
+
+      this.classList.add("active");
+
+      const targetId = this.getAttribute("href").substring(1);
+
+      document.querySelectorAll(".main-product").forEach(function (section) {
+        section.classList.remove("show");
+      });
+
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add("show");
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Our Product Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Our Products"
+    },
+    {
+      "type": "collection",
+      "id": "sale_collection",
+      "label": "Sale Collection"
+    },
+    {
+      "type": "collection",
+      "id": "hot_collection",
+      "label": "Hot Collection"
+    },
+    {
+      "type": "collection",
+      "id": "new_collection",
+      "label": "New Arrivals Collection"
+    },
+    {
+      "type": "collection",
+      "id": "accessories_collection",
+      "label": "Accessories Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Products (Tabs)"
+    }
+  ]
+}
+{% endschema %}

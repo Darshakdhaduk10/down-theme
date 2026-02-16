@@ -1,0 +1,234 @@
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+  }
+  .font-rufina {
+    font-family: "Rufina", serif;
+  }
+  .font-roboto-slab {
+    font-family: "Roboto Slab", serif;
+  }
+  .font-roboto-serif {
+    font-family: "Roboto Serif", serif;
+  }
+  .fs-16 {
+      font-size: 16px;
+  }
+  .fs-1 {
+    font-size: 36px;
+  }
+  .fs-2 {
+    font-size: 42px;
+  }
+  .fs-3 {
+    font-size: 42px;
+  }
+  .fs-4 {
+    font-size: 46px;
+  }
+  .fs-5 {
+    font-size: 32px;
+  }
+  .fs-6 {
+    font-size: 30px;
+  }
+  .fs-7 {
+    font-size: 16px;
+  }
+  .fs-8 {
+    font-size: 18px;
+  }
+  .fs-9 {
+    font-size: 14px;
+  }
+  .fs-10 {
+    font-size: 16px;
+  }
+  .fs-20 {
+    font-size: 20px;
+  }
+  
+  @media (min-width: 576px) {
+    .fs-1 {
+      font-size: 45px;
+    }
+    .fs-2 {
+    font-size: 64px;
+  }
+  .fs-3 {
+    font-size: 50px;
+  }
+    .fs-7 {
+      font-size: 28px;
+    }
+    .fs-8 {
+    font-size: 22px;
+  }
+    .fs-9 {
+      font-size: 16px;
+    }
+    
+  }
+  
+  @media (min-width: 768px) {
+    .fs-1 {
+      font-size: 60px;
+    }
+    .fs-7 {
+      font-size: 22px;
+    }
+    .fs-9 {
+      font-size: 18px;
+    }
+    
+  }
+  
+  @media (min-width: 992px) {
+    .fs-1 {
+      font-size: 86px;
+    }
+    .fs-7 {
+      font-size: 24px;
+    }
+    .fs-9 {
+      font-size: 20px;
+    }
+    
+  }
+  
+  @media (min-width: 1200px) {
+  }
+  
+  @media (min-width: 1400px) {
+  }
+  
+  .font-primary {
+    color: #224f34;
+  }
+  .font-secondary {
+    color: #267d49;
+  }
+  .font-light-secondary {
+    color: #C2EFD4;
+  }
+  .titile-color {
+    color: #373737;
+  }
+  .price-color {
+    color: #454545;
+  }
+  .grey-color {
+    color: #6F6F6F;
+  }
+  .text-white {
+    color: #fff;
+  }
+  .fst-italic {
+    font-style: italic !important;
+  }
+  
+  .fst-normal {
+    font-style: normal !important;
+  }
+  
+  .fw-lighter {
+    font-weight: lighter !important;
+  }
+  
+  .fw-lighter {
+    font-weight: lighter !important;
+  }
+  
+  .fw-light {
+    font-weight: 300 !important;
+  }
+  
+  .fw-normal {
+    font-weight: 400 !important;
+  }
+  
+  .fw-medium {
+    font-weight: 500 !important;
+  }
+  
+  .fw-semibold {
+    font-weight: 600 !important;
+  }
+  
+  .fw-bold {
+    font-weight: 700 !important;
+  }
+  
+  .fw-bolder {
+    font-weight: bolder !important;
+  }
+  .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  .text-decoration-none {
+    text-decoration: none !important;
+  }
+  
+  .text-decoration-underline {
+    text-decoration: underline !important;
+  }
+  
+  .text-decoration-line-through {
+    text-decoration: line-through !important;
+  }
+  
+  .text-lowercase {
+    text-transform: lowercase !important;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase !important;
+  }
+  
+  .text-capitalize {
+    text-transform: capitalize !important;
+  }
+  
+  .text-start {
+    text-align: left !important;
+  }
+  
+  .text-end {
+    text-align: right !important;
+  }
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .text-decoration-none {
+    text-decoration: none !important;
+  }
+  
+  .text-decoration-underline {
+    text-decoration: underline !important;
+  }
+  
+  .text-decoration-line-through {
+    text-decoration: line-through !important;
+  }
+  
+  .text-lowercase {
+    text-transform: lowercase !important;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase !important;
+  }
+  
+  .text-capitalize {
+    text-transform: capitalize !important;
+  }
+  
+  .text-wrap {
+    white-space: normal !important;
+  }
+  
+  .text-nowrap {
+    white-space: nowrap !important;
+  }

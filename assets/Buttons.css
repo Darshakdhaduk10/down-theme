@@ -1,0 +1,102 @@
+.btn-primary {
+    border: 2px solid #224f34;
+    color: #224f34;
+    padding: 11px 41px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+   .btn-fourth {
+    background-color: #224f34;
+    color: #fff;
+    box-shadow: 6px 33px 59px rgba(0, 0, 0, 0.3);
+    padding: 22px 60px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+  }
+  .btn-fourth:hover {
+    border: 2px solid #224f34;
+    color: #224f34;
+    background-color: transparent;
+    box-shadow: none;
+  }
+   .btn-last {
+    background-color: #224f34;
+    color: #fff;
+    box-shadow: 6px 33px 59px rgba(0, 0, 0, 0.3);
+    padding: 22px 70px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    margin-top: 41px;
+  }
+  .btn-last:hover {
+    border: 2px solid #224f34;
+    color: #224f34;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .btn-secondary {
+    border: 2px solid #224f34;
+    color: #224f34;
+    padding: 22px 60px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .btn-third {
+    border: 2px solid #224f34;
+    color: #224f34;
+    padding: 16px 55px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .btn-third svg path {
+    transition: all 0.3s ease-in-out;
+  }
+  .btn-mobile {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 11px 41px;
+    /* background-color: #dde9e2; */
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-mobile:hover {
+    /* background-color: #c2efd4; */
+    background-color: white;
+    /* color: #224f34; */
+    color: black;
+    box-shadow: 6px 33px 59px rgba(231, 227, 227, 0.3);
+  }
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-third:hover{
+    background-color: #224f34;
+    color: #fff;
+    box-shadow: 6px 33px 59px rgba(0, 0, 0, 0.3);
+  }
+  .btn-third:hover svg path {
+    fill: #fff;
+  }
+  
+  /* @media (min-width: 992px) {
+    .btn-primary {
+      padding: 11px 41px;
+    }
+    .btn-secondary {
+      padding: 22px 60px;
+    }
+  } */
+  

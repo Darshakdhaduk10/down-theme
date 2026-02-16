@@ -1,0 +1,178 @@
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+  .position-static {
+    position: static !important;
+  }
+  
+  .position-relative {
+    position: relative !important;
+  }
+  
+  .position-absolute {
+    position: absolute !important;
+  }
+  
+  .position-fixed {
+    position: fixed !important;
+  }
+  
+  .position-sticky {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+  }
+  
+  .top-0 {
+    top: 0 !important;
+  }
+  
+  .top-50 {
+    top: 50% !important;
+  }
+  
+  .top-100 {
+    top: 100% !important;
+  }
+  
+  .bottom-0 {
+    bottom: 0 !important;
+  }
+  
+  .bottom-50 {
+    bottom: 50% !important;
+  }
+  
+  .bottom-100 {
+    bottom: 100% !important;
+  }
+  
+  .start-0 {
+    left: 0 !important;
+  }
+  
+  .start-50 {
+    left: 50% !important;
+  }
+  
+  .start-100 {
+    left: 100% !important;
+  }
+  
+  .end-0 {
+    right: 0 !important;
+  }
+  
+  .end-50 {
+    right: 50% !important;
+  }
+  
+  .end-100 {
+    right: 100% !important;
+  }
+  
+  .translate-middle {
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .translate-middle-x {
+    transform: translateX(-50%) !important;
+  }
+  
+  .translate-middle-y {
+    transform: translateY(-50%) !important;
+  }
+  .object-fit-contain {
+    -o-object-fit: contain !important;
+    object-fit: contain !important;
+  }
+  
+  .object-fit-cover {
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+  }
+  
+  .object-fit-fill {
+    -o-object-fit: fill !important;
+    object-fit: fill !important;
+  }
+  
+  .object-fit-scale {
+    -o-object-fit: scale-down !important;
+    object-fit: scale-down !important;
+  }
+  
+  .object-fit-none {
+    -o-object-fit: none !important;
+    object-fit: none !important;
+  }
+  
+  .opacity-0 {
+    opacity: 0 !important;
+  }
+  
+  .opacity-25 {
+    opacity: 0.25 !important;
+  }
+  
+  .opacity-50 {
+    opacity: 0.5 !important;
+  }
+  
+  .opacity-75 {
+    opacity: 0.75 !important;
+  }
+  
+  .opacity-100 {
+    opacity: 1 !important;
+  }
+  
+  .overflow-auto {
+    overflow: auto !important;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
+  
+  .overflow-visible {
+    overflow: visible !important;
+  }
+  
+  .overflow-scroll {
+    overflow: scroll !important;
+  }
+  
+  .overflow-x-auto {
+    overflow-x: auto !important;
+  }
+  
+  .overflow-x-hidden {
+    overflow-x: hidden !important;
+  }
+  
+  .overflow-x-visible {
+    overflow-x: visible !important;
+  }
+  
+  .overflow-x-scroll {
+    overflow-x: scroll !important;
+  }
+  
+  .overflow-y-auto {
+    overflow-y: auto !important;
+  }
+  
+  .overflow-y-hidden {
+    overflow-y: hidden !important;
+  }
+  
+  .overflow-y-visible {
+    overflow-y: visible !important;
+  }
+  
+  .overflow-y-scroll {
+    overflow-y: scroll !important;
+  }
+  

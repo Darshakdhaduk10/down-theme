@@ -1,0 +1,223 @@
+@media (min-width: 360px) {
+}
+/* --- 576px --- */
+@media (min-width: 576px) {
+  /* Banner */
+  .bnr-right-img {
+    border-radius: 141px 45px 150px 82px;
+  }
+
+  /* Best - Selling - Section */
+  .main-selling > .col-4 {
+    flex: 0 0 calc((100% - 42px) / 2);
+  }
+
+  .product-deil ul {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+  .product-deil ul li {
+    display: flex;
+    justify-content: start;
+  }
+
+  /* Our - Product - Section */
+  .main-product > .col-3 {
+    flex: 0 0 calc((100% - 35px) / 2);
+  }
+}
+
+/* --- 768px (TABLET) --- */
+@media (min-width: 768px) {
+  /* Our - Product - Section */
+  .product-deil ul {
+    flex-direction: row;
+    gap: 100px;
+  }
+
+  /* Designer - Clothes - Section */
+  .designer-col {
+    flex: 0 0 calc((100% - 43px) / 2);
+  }
+
+  /* Best - Selling - Section */
+
+  .feedback-swiper {
+    /* position: relative; */
+    /* padding-bottom: 134px; */
+    margin-top: 109px;
+  }
+
+  /* Footer */
+  .footer-bouttom {
+    margin-top: 50px;
+  }
+}
+
+/* --- 992px (LAPTOP) --- */
+@media (min-width: 992px) {
+  .container {
+    padding: 0 50px;
+  }
+
+  /* Banner */
+  .banner-row {
+    flex-direction: row;
+  }
+  .bnr-left-con p {
+    max-width: 576px;
+  }
+  .banner {
+    flex-direction: row;
+  }
+
+  /* Best - Selling - Section */
+  .main-selling > .col-4 {
+    flex: 0 0 calc((100% - 84px) / 3);
+  }
+
+  .best-price {
+    flex-direction: column;
+  }
+  .price-left-con {
+    width: 50%;
+  }
+  .selling-title h2 {
+    padding-top: 114px;
+  }
+
+  /* Our - Product - Section */
+  .main-product > .col-3 {
+    flex: 0 0 calc((100% - 105px) / 4);
+  }
+  .our-price {
+    flex-direction: column;
+  }
+  .product-left-con {
+    width: 65%;
+  }
+  .our-product-title {
+    padding-top: 185px;
+  }
+  /* Exclusive offer */
+  .exclusive {
+    padding-top: 195px;
+  }
+  .exclusive-pb {
+    padding-bottom: 0px;
+  }
+  .left-exclusive-img img {
+    left: -3%;
+    position: relative;
+  }
+  .left-exclusive-img .svg-1 {
+    bottom: 61px;
+    left: 98px;
+  }
+  .left-exclusive-img .svg-2 {
+    bottom: 41px;
+    left: 41px;
+  }
+  .right-con p {
+    line-height: 167%;
+    max-width: 87%;
+    text-align: start;
+  }
+
+  /* Designer - Clothes - Section */
+  .designer-title h2 {
+    padding-top: 218px;
+  }
+  .designer-col {
+    flex: 0 0 calc((100% - 86px) / 3);
+  }
+
+  .feedback-swiper .swiper-slide-active .feedback-card-con {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Feedback - Section */
+  .Feedback-title {
+    padding-top: 249px;
+  }
+  .feedback-swiper .swiper-slide-next .feedback-card-con {
+    background-color: #c2efd4;
+    box-shadow: none;
+  }
+  .feedback-swiper .swiper-slide-next .feedback-card-con p {
+    color: #224f34;
+  }
+
+  /* Footer */
+  .mt-198 {
+    margin-top: 198px;
+  }
+}
+
+/* --- 1200px (DESKTOP) --- */
+@media (min-width: 1200px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  nav.col-6 {
+    display: block !important;
+  }
+
+  .mobile-menu {
+    right: -100% !important;
+  }
+
+  .menu-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .hamburger.active span:nth-child(1),
+  .hamburger.active span:nth-child(2),
+  .hamburger.active span:nth-child(3) {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  /* Best - Selling - Section */
+  .best-price {
+    flex-direction: row;
+  }
+  .price-left-con {
+    width: 33.3333%;
+  }
+
+  /* Our - Product - Section */
+  .our-price {
+    flex-direction: row;
+  }
+  .product-left-con {
+    width: 33.3333%;
+  }
+
+  /* Exclusive offer */
+  .counter {
+    gap: 35px;
+  }
+
+  /* Footer */
+  .footer-bouttom {
+    margin-top: 154px;
+  }
+}
+
+/* --- 1440px (LARGE SCREEN) --- */
+@media (min-width: 1440px) {
+}
+
+@media (max-width: 1222px) {
+  nav.col-6 {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

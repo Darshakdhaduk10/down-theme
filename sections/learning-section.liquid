@@ -1,0 +1,94 @@
+{{ 'learning-section.css' | asset_url | stylesheet_tag }}
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 main-learning-section d-block">
+        <div class="left-section col-lg-6 col-12">
+          <h2 class="text-center">{{ section.settings.heading }}</h2>
+          {% comment %} <img src="{{ 'learning-1.png' | asset_url }}" alt="Learning 1" width="600" height="400"> {% endcomment %}
+          {% if section.settings.left_image != blank %}
+            <img
+              src="{{ section.settings.left_image | image_url: width: 600 }}"
+              alt="{{ section.settings.left_image.alt | escape }}"
+              class="img-fluid left-img"
+              width=""
+              height=""
+            >
+          {% endif %}
+        </div>   
+        <div class="right-content d-flex col-lg-6 col-12 right-bg">
+          {% for block in section.blocks %}
+            <div class="right-item" {{ block.shopify_attributes }}>
+              <div class="item-img">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 300 }}"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    width="74"
+                    height="74"
+                  >
+                {% endif %}
+              </div>
+
+              <div class="item-text">
+                <h3>{{ block.settings.title }}</h3>
+                <p>{{ block.settings.text }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Learning Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Learning Section",
+      "label": "Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "right_item",
+      "name": "Right Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Description text here"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Learning Section"
+    }
+  ]
+}
+{% endschema %}

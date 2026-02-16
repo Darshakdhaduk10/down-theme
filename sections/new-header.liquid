@@ -1,0 +1,142 @@
+
+{{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<header class="bg-primary">
+  <div class="container">
+    <div class="row col-12 pt-1 justify-content-around">
+
+      <!-- Logo -->
+      <div class="col-2">
+        <a href="{{ routes.root_url }}">
+          {{ section.settings.logo_svg }}
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="col-6">
+        <ul class="d-flex gap-5 justify-content-end">
+          {% for link in linklists[section.settings.menu].links %}
+            <li class="font-poppins fw-medium fs-8 list-unstyled text-uppercase">
+              <a href="{{ link.url }}" class="text-decoration-none font-primary">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <!-- Right side -->
+      <div class="col-5 col-sm-8 col-xl-4 d-flex justify-content-end gap-5">
+        <div class="cart-icon d-flex align-items-center justify-content-center">
+          <a href="{{ routes.cart_url }}">
+            {{ section.settings.cart_svg }}
+          </a>
+        </div>
+
+        {% if customer %}
+          <a href="{{ routes.account_url }}"
+             class="btn-primary font-poppins fw-medium fs-9 d-none d-sm-block">
+            ACCOUNT
+          </a>
+        {% else %}
+          <a href="{{ routes.account_login_url }}"
+             class="btn-primary font-poppins fw-medium fs-9 d-none d-sm-block class text-decoration-none">
+            LOGIN
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger flex-column align-items-end" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="menu-overlay position-fixed" id="overlay" onclick="toggleMenu()"></div>
+
+  <nav class="mobile-menu position-fixed" id="mobileMenu">
+    <button class="close-btn position-absolute text-white" onclick="toggleMenu()">
+      &times;
+    </button>
+
+    <ul class="flex-column list-unstyled">
+      {% for link in linklists[section.settings.menu].links %}
+        <li>
+          <a href="{{ link.url }}"
+             class="font-poppins d-block text-white text-decoration-none text-uppercase">
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div>
+      {% if customer %}
+        <a href="{{ routes.account_url }}"
+           class="btn-mobile font-poppins fw-medium fs-9 mt-4 d-block d-sm-none">
+          ACCOUNT
+        </a>
+      {% else %}
+        <a href="{{ routes.account_login_url }}"
+           class="btn-mobile font-poppins fw-medium fs-9 mt-4 d-block d-sm-none">
+          LOGIN
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+</header>
+
+<script>
+  function toggleMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
+    },
+    {
+      "type": "textarea",
+      "id": "logo_svg",
+      "label": "Logo SVG (paste full SVG code)"
+    },
+    {
+      "type": "textarea",
+      "id": "cart_svg",
+      "label": "Cart SVG (paste full SVG code)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header"
+    }
+  ]
+}
+{% endschema %}

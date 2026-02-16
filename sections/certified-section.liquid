@@ -1,0 +1,107 @@
+{{ 'certified-section.css' | asset_url | stylesheet_tag }}
+
+{% unless template.name == 'product' or template.name == 'cart' or template.name == 'checkout' %}
+
+  <section>
+    <h2 class="text-center">{{ section.settings.heading }}</h2>
+    <div class="row main-featured-product">
+      {% for block in section.blocks %}
+        {% assign product = all_products[block.settings.product] %}
+        {% if product %}
+          <a href="{{ product.url }}" class="col-4 featured-product" {{ block.shopify_attributes }}>
+            <!-- Product Image -->
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'featured-img' }}
+            {% endif %}
+
+            <div class="featured-content">
+              <!-- Product Title -->
+              <p>{{ product.title }}</p>
+
+              <div class="rating">
+                <!-- Product Price -->
+                <h2>{{ product.price | money }}</h2>
+                <div class="star-rating" data-rating="0">
+                  {% for i in (1..5) %}
+                    <span class="star" data-value="{{ i }}">&#9734;</span>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.custom_css != blank %}
+      <style>
+        {{ section.settings.custom_css }}
+      </style>
+    {% endif %}
+  </section>
+{% endunless %}
+
+{{ 'featured-stars.js' | asset_url | script_tag }}
+
+
+{% comment %} <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.star-rating').forEach(function (ratingContainer) {
+      const stars = ratingContainer.querySelectorAll('.star');
+
+      stars.forEach(function (star) {
+        star.addEventListener('click', function (e) {
+          e.preventDefault(); // link open thatu rokse
+          e.stopPropagation(); // parent <a> sudhi event javanu rokse
+
+          let value = this.getAttribute('data-value');
+
+          ratingContainer.setAttribute('data-rating', value);
+
+          stars.forEach(function (s, index) {
+            if (index < value) {
+              s.classList.add('filled');
+              s.innerHTML = '★'; // filled star
+            } else {
+              s.classList.remove('filled');
+              s.innerHTML = '☆'; // empty star
+            }
+          });
+        });
+      });
+    });
+  });
+</script> {% endcomment %}
+
+{% schema %}
+{
+  "name": "Our featured products",
+  "max_blocks": 3,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "right_item",
+      "name": "Featured Item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Product short description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our featured products",
+      "blocks": [{ "type": "right_item" }, { "type": "right_item" }, { "type": "right_item" }]
+    }
+  ]
+}
+{% endschema %}

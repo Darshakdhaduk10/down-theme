@@ -251,45 +251,45 @@
         "subheading": "Immerse yourself in the world of luxury fashion with our meticulously crafted designer clothes!"
       }
     },
-    "feedback_corner_slider_7Rfgga": {
+    "feedback_corner_slider_nUmyUX": {
       "type": "feedback-corner-slider",
       "blocks": {
-        "feedback_mTBPne": {
+        "feedback_ey3TWV": {
           "type": "feedback",
           "settings": {
             "name": "Emily Wilson",
             "message": "The customer experience was exceptional from start to finish. The website is\n                                        user-friendly, the checkout process was smooth, and the clothes I ordered fit\n                                        perfectly.\n                                        I'm beyond satisfied!"
           }
         },
-        "feedback_7CD8W4": {
+        "feedback_nRp7GD": {
           "type": "feedback",
           "settings": {
             "name": "Emily Wilson",
             "message": "The customer experience was exceptional from start to finish. The website is\n                                        user-friendly, the checkout process was smooth, and the clothes I ordered fit\n                                        perfectly.\n                                        I'm beyond satisfied!"
           }
         },
-        "feedback_U8CUB3": {
+        "feedback_UXLrhF": {
           "type": "feedback",
           "settings": {
             "name": "Emily Wilson",
             "message": "The customer experience was exceptional from start to finish. The website is\n                                        user-friendly, the checkout process was smooth, and the clothes I ordered fit\n                                        perfectly.\n                                        I'm beyond satisfied!"
           }
         },
-        "feedback_BiqzKE": {
+        "feedback_Jt64ek": {
           "type": "feedback",
           "settings": {
             "name": "Emily Wilson",
             "message": "The customer experience was exceptional from start to finish. The website is\n                                        user-friendly, the checkout process was smooth, and the clothes I ordered fit\n                                        perfectly.\n                                        I'm beyond satisfied!"
           }
         },
-        "feedback_aXHr7m": {
+        "feedback_EFCDFJ": {
           "type": "feedback",
           "settings": {
             "name": "Emily Wilson",
             "message": "The customer experience was exceptional from start to finish. The website is\n                                        user-friendly, the checkout process was smooth, and the clothes I ordered fit\n                                        perfectly.\n                                        I'm beyond satisfied!"
           }
         },
-        "feedback_RKzUE4": {
+        "feedback_9AYJx9": {
           "type": "feedback",
           "settings": {
             "name": "Emily Wilson",
@@ -298,12 +298,12 @@
         }
       },
       "block_order": [
-        "feedback_mTBPne",
-        "feedback_7CD8W4",
-        "feedback_U8CUB3",
-        "feedback_BiqzKE",
-        "feedback_aXHr7m",
-        "feedback_RKzUE4"
+        "feedback_ey3TWV",
+        "feedback_nRp7GD",
+        "feedback_UXLrhF",
+        "feedback_Jt64ek",
+        "feedback_EFCDFJ",
+        "feedback_9AYJx9"
       ],
       "name": "Feedback Corner Slider",
       "settings": {
@@ -321,6 +321,6 @@
     "our_product_section_HLWKVJ",
     "exclusive_offer_section_AHg8PK",
     "designer_clothes_section_fAAWWy",
-    "feedback_corner_slider_7Rfgga"
+    "feedback_corner_slider_nUmyUX"
   ]
 }

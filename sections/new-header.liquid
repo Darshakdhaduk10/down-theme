@@ -1,4 +1,3 @@
-
 {{ 'Fonts.css' | asset_url | stylesheet_tag }}
 {{ 'Gap.css' | asset_url | stylesheet_tag }}
 {{ 'Grid.css' | asset_url | stylesheet_tag }}
@@ -38,7 +37,7 @@
       <!-- Right side -->
       <div class="col-5 col-sm-8 col-xl-4 d-flex justify-content-end gap-5">
         <div class="cart-icon d-flex align-items-center justify-content-center">
-          <a href="{{ routes.cart_url }}">
+          <a href="{{ routes.cart_url }}" class="d-flex">
             {{ section.settings.cart_svg }}
           </a>
         </div>
@@ -49,9 +48,9 @@
             ACCOUNT
           </a>
         {% else %}
-          <a href="{{ routes.account_login_url }}"
-             class="btn-primary font-poppins fw-medium fs-9 d-none d-sm-block class text-decoration-none">
-            LOGIN
+          <a href="{{ routes.account_login_url }}" class="text-decoration-none"
+             >
+             <button class="btn-primary font-poppins fw-medium fs-9 d-none d-sm-block class">LOGIN</button>
           </a>
         {% endif %}
       </div>
@@ -118,14 +117,14 @@
   "name": "Custom Header",
   "settings": [
     {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Main Menu"
-    },
-    {
       "type": "textarea",
       "id": "logo_svg",
       "label": "Logo SVG (paste full SVG code)"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
     },
     {
       "type": "textarea",

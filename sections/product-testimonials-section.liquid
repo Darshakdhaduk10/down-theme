@@ -1,0 +1,547 @@
+{% comment %} {{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<style>
+    /* Slider container relative */
+    #product-testimonials-{{ section.id }} .testimonial-swiper-{{ section.id }} {
+      position: relative;
+    }
+
+    #product-testimonials-{{ section.id }} .custom-vertical-pagination {
+      position: absolute;
+      bottom: -17px;
+      right: 0;
+      width: 100%;
+      justify-content: center;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1;
+    }
+
+    #product-testimonials-{{ section.id }} .custom-arrow-2 {
+      cursor: pointer;
+    }
+
+    #product-testimonials-{{ section.id }} .swiper-pagination {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    /* Dot size */
+    #product-testimonials-{{ section.id }} .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #ccc;
+      opacity: 1;
+    }
+
+    /* Custom Fixed Dots Style */
+  #product-testimonials-{{ section.id }} .custom-dot {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Active Dot */
+  #product-testimonials-{{ section.id }} .custom-dot.swiper-pagination-bullet-active {
+    background: transparent;
+  }
+
+  #product-testimonials-{{ section.id }} .dot-rect {
+    fill: #ccc;
+    transition: fill 0.3s ease;
+  }
+
+  #product-testimonials-{{ section.id }}
+  .custom-dot.swiper-pagination-bullet-active
+  .dot-rect {
+    fill: #000;
+  }
+</style>
+
+<section id="product-testimonials-{{ section.id }}">
+  <div class="container">
+    <div class="swiper testimonial-swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="row align-items-center">
+              <div class="left-img-part-product col-12 col-lg-5 d-flex flex-column align-items-center">
+                {% if block.settings.slide_image != blank %}
+                  <img
+                    src="{{ block.settings.slide_image | image_url: width: 600 }}"
+                    alt="{{ block.settings.slide_image.alt | escape }}"
+                    width="{{ block.settings.slide_image.width }}"
+                    height="{{ block.settings.slide_image.height }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                {% endif %}
+              </div>
+
+              <div class="col-12 col-lg-7 text-center text-center-lg-start pb-38">
+                <h3 class="mb-5 fs-20">
+                  {{ block.settings.slide_title }}
+                </h3>
+
+                <p class="lh-normal mb-4 testimonials-p ">
+                  {{ block.settings.slide_review }}
+                </p>
+
+                <p class="fs-20">
+                  {{ block.settings.customer_name }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Custom Vertical Pagination With Arrows -->
+      <div class="custom-vertical-pagination">
+        <!-- Top Arrow -->
+        <div class="custom-arrow-2 custom-arrow-2-up">
+          <svg width="31" height="19" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0534 9.23744L30.1059 8.49804L30.1064 8.49502L30.1062 8.49498L30.1012 8.49425L30.0767 8.49046C30.0539 8.48688 30.0186 8.48116 29.9718 8.47304C29.8779 8.4568 29.7379 8.43104 29.5593 8.39383C29.2019 8.31937 28.6918 8.19944 28.0906 8.01907C26.8829 7.65675 25.3334 7.05829 23.9161 6.11341C22.5663 5.21355 21.5125 3.71468 20.7835 2.3783C20.4241 1.71928 20.1541 1.11932 19.9744 0.685055C19.8847 0.468278 19.8179 0.293737 19.774 0.174929C19.7521 0.115549 19.7359 0.0701675 19.7255 0.0404768L19.7142 0.00794601L19.7118 0.000921249L19.7115 0C19.7116 0.000127792 19.7116 0.000272751 19.0001 0.237444C18.2886 0.474615 18.2886 0.474794 18.2887 0.474991L18.2889 0.475471L18.2893 0.476739L18.2906 0.480505L18.2948 0.492882L18.3099 0.536462C18.3229 0.573666 18.3419 0.626917 18.3668 0.69449C18.4167 0.829588 18.4905 1.02223 18.5883 1.25858C18.7836 1.73057 19.0761 2.38061 19.4667 3.09658C20.2377 4.51021 21.4339 6.26134 23.0841 7.36148C23.7486 7.80451 24.4339 8.17638 25.1011 8.48744H0V9.98744H25.1011C24.4339 10.2985 23.7486 10.6704 23.0841 11.1134C21.4339 12.2135 20.2377 13.9647 19.4667 15.3783C19.0761 16.0943 18.7836 16.7443 18.5883 17.2163C18.4905 17.4527 18.4167 17.6453 18.3668 17.7804C18.3419 17.848 18.3229 17.9012 18.3099 17.9384L18.2948 17.982L18.2906 17.9944L18.2893 17.9981L18.2889 17.9994L18.2887 17.9999C18.2886 18.0001 18.2886 18.0003 19.0001 18.2374C19.7116 18.4746 19.7116 18.4748 19.7115 18.4749L19.7118 18.474L19.7142 18.4669L19.7255 18.4344C19.7359 18.4047 19.7521 18.3593 19.774 18.3C19.8179 18.1812 19.8847 18.0066 19.9744 17.7898C20.1541 17.3556 20.4241 16.7556 20.7835 16.0966C21.5125 14.7602 22.5663 13.2613 23.9161 12.3615C25.3334 11.4166 26.8829 10.8181 28.0906 10.4558C28.6918 10.2754 29.2019 10.1555 29.5593 10.0811C29.7379 10.0439 29.8779 10.0181 29.9718 10.0018C30.0186 9.99373 30.0539 9.988 30.0767 9.98443L30.1012 9.98064L30.1062 9.9799L30.1064 9.97987L30.1059 9.97685L30.0534 9.23744Z" fill="#213721"/>
+          </svg>
+        </div>
+        <div class="swiper-pagination custom-fixed-pagination">
+          {% assign total_blocks = section.blocks.size %}
+          {% assign max_dots = 4 %}
+          {% if total_blocks < max_dots %}
+            {% assign max_dots = total_blocks %}
+          {% endif %}
+  
+          {% for block in section.blocks limit: max_dots %}
+            <svg
+              width="6"
+              height="6"
+              viewBox="0 0 6 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="custom-dot"
+              data-index="{{ forloop.index0 }}"
+            >
+              <rect
+                y="2.82843"
+                width="4"
+                height="4"
+                transform="rotate(-45 0 2.82843)"
+                class="dot-rect"
+              />
+            </svg>
+          {% endfor %}
+        </div>
+
+        <!-- Bottom Arrow -->
+        <div class="custom-arrow-2 custom-arrow-2-down">
+          <svg width="31" height="19" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0530444 9.23744L0.000496678 8.49804L0 8.49502L0.000254221 8.49498L0.00522179 8.49425L0.0297647 8.49046C0.0524989 8.48688 0.0877965 8.48116 0.134689 8.47304C0.2285 8.4568 0.368556 8.43104 0.54713 8.39383C0.904577 8.31937 1.41462 8.19944 2.01583 8.01907C3.22357 7.65675 4.773 7.05829 6.19032 6.11341C7.54011 5.21355 8.59399 3.71468 9.32292 2.3783C9.68239 1.71928 9.95239 1.11932 10.1321 0.685055C10.2218 0.468278 10.2886 0.293737 10.3325 0.174929C10.3544 0.115549 10.3706 0.0701675 10.381 0.0404768L10.3922 0.00794601L10.3946 0.000921249L10.3949 0C10.3949 0.000127792 10.3948 0.000272751 11.1063 0.237444C11.8179 0.474615 11.8178 0.474794 11.8177 0.474991L11.8176 0.475471L11.8171 0.476739L11.8159 0.480505L11.8117 0.492882L11.7966 0.536462C11.7835 0.573666 11.7646 0.626917 11.7396 0.69449C11.6897 0.829588 11.6159 1.02223 11.5181 1.25858C11.3228 1.73057 11.0303 2.38061 10.6398 3.09658C9.8687 4.51021 8.67258 6.26134 7.02237 7.36148C6.35783 7.80451 5.67251 8.17638 5.00535 8.48744H30.1063V9.98744H5.00535C5.67251 10.2985 6.35783 10.6704 7.02237 11.1134C8.67258 12.2135 9.8687 13.9647 10.6398 15.3783C11.0303 16.0943 11.3228 16.7443 11.5181 17.2163C11.6159 17.4527 11.6897 17.6453 11.7396 17.7804C11.7646 17.848 11.7835 17.9012 11.7966 17.9384L11.8117 17.982L11.8159 17.9944L11.8171 17.9981L11.8176 17.9994L11.8177 17.9999C11.8178 18.0001 11.8179 18.0003 11.1063 18.2374C10.3948 18.4746 10.3949 18.4748 10.3949 18.4749L10.3946 18.474L10.3922 18.4669L10.381 18.4344C10.3706 18.4047 10.3544 18.3593 10.3325 18.3C10.2886 18.1812 10.2218 18.0066 10.1321 17.7898C9.95239 17.3556 9.68239 16.7556 9.32292 16.0966C8.59399 14.7602 7.54011 13.2613 6.19032 12.3615C4.773 11.4166 3.22357 10.8181 2.01583 10.4558C1.41462 10.2754 0.904577 10.1555 0.54713 10.0811C0.368556 10.0439 0.2285 10.0181 0.134689 10.0018C0.0877965 9.99373 0.0524989 9.988 0.0297647 9.98443L0.00522179 9.98064L0.000254221 9.9799L0 9.97987L0.000496678 9.97685L0.0530444 9.23744Z" fill="#213721" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#product-testimonials-{{ section.id }}');
+    if (!section) return;
+
+    const swiperEl = section.querySelector('.testimonial-swiper-{{ section.id }}');
+    if (!swiperEl) return;
+
+    // Initialize Swiper (WITHOUT default pagination)
+    const swiper = new Swiper(swiperEl, {
+      loop: true,
+      spaceBetween: 30,
+    });
+
+    const dots = section.querySelectorAll('.custom-dot');
+
+    function updateActiveDot() {
+      if (!dots.length) return;
+
+      let realIndex = swiper.realIndex;
+      // Fix: modulo with total visible dots
+      let dotIndex = realIndex % dots.length;
+
+      dots.forEach((dot) => dot.classList.remove('swiper-pagination-bullet-active'));
+      dots[dotIndex].classList.add('swiper-pagination-bullet-active');
+    }
+
+    swiper.on('slideChange', updateActiveDot);
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', function () {
+        swiper.slideToLoop(parseInt(this.dataset.index));
+      });
+    });
+
+    updateActiveDot();
+
+    const arrowUp = section.querySelector('.custom-arrow-2-up');
+    const arrowDown = section.querySelector('.custom-arrow-2-down');
+
+    if (arrowUp) {
+      arrowUp.addEventListener('click', function () {
+        swiper.slidePrev();
+      });
+    }
+
+    if (arrowDown) {
+      arrowDown.addEventListener('click', function () {
+        swiper.slideNext();
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Testimonials",
+  "settings": [
+    {
+      "type": "range",
+      "id": "review_font_size",
+      "label": "Review Font Size",
+      "min": 16,
+      "max": 45,
+      "step": 1,
+      "unit": "px",
+      "default": 42
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial_slide",
+      "name": "Testimonial Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "slide_title",
+          "label": "Title",
+          "default": "Holocena"
+        },
+        {
+          "type": "textarea",
+          "id": "slide_review",
+          "label": "Review Text",
+          "default": "I've been feeling pretty stressed with my skin lately, so I picked up a set of HOLOCENA skincare. oh my goodness!. It was AMAZING. My skin felt so soft and moisturized"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name",
+          "default": "John Doe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Testimonials Slider",
+      "blocks": [{ "type": "testimonial_slide" }, { "type": "testimonial_slide" }, { "type": "testimonial_slide" }]
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+{{ 'Fonts.css' | asset_url | stylesheet_tag }}
+{{ 'Gap.css' | asset_url | stylesheet_tag }}
+{{ 'Grid.css' | asset_url | stylesheet_tag }}
+{{ 'Padi-Marg.css' | asset_url | stylesheet_tag }}
+{{ 'Space.css' | asset_url | stylesheet_tag }}
+{{ 'Buttons.css' | asset_url | stylesheet_tag }}
+{{ 'Bg-colors.css' | asset_url | stylesheet_tag }}
+{{ 'Position.css' | asset_url | stylesheet_tag }}
+{{ 'Width&Height.css' | asset_url | stylesheet_tag }}
+{{ 'Style.css' | asset_url | stylesheet_tag }}
+{{ 'media.css' | asset_url | stylesheet_tag }}
+
+<style>
+  /* Slider container */
+  .testimonial-swiper {
+    position: relative;
+  }
+  
+  .custom-vertical-pagination {
+    position: absolute;
+    bottom: -17px;
+    right: 0;
+    width: 100%;
+    justify-content: center;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1;
+  }
+  
+  .custom-arrow-2 {
+    cursor: pointer;
+  }
+  
+  .swiper-pagination {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    opacity: 1;
+  }
+  
+  .custom-dot {
+    display: block;
+    cursor: pointer;
+  }
+  
+  .custom-dot.swiper-pagination-bullet-active {
+    background: transparent;
+  }
+  
+  .dot-rect {
+    fill: #ccc;
+    transition: fill 0.3s ease;
+  }
+  
+  .custom-dot.swiper-pagination-bullet-active .dot-rect {
+    fill: #000;
+  }
+</style>
+  
+
+<section id="product-testimonials-{{ section.id }}">
+  <div class="container">
+    <div class="swiper testimonial-swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="row align-items-center">
+              <div class="left-img-part-product col-12 col-lg-5 d-flex flex-column align-items-center">
+                {% if block.settings.slide_image != blank %}
+                  <img
+                    src="{{ block.settings.slide_image | image_url: width: 600 }}"
+                    alt="{{ block.settings.slide_image.alt | escape }}"
+                    width="{{ block.settings.slide_image.width }}"
+                    height="{{ block.settings.slide_image.height }}"
+                    loading="lazy"
+                    class="img-fluid"
+                  >
+                {% endif %}
+              </div>
+
+              <div class="col-12 col-lg-7 text-center text-center-lg-start pb-38">
+                <h3 class="mb-5 fs-20">
+                  {{ block.settings.slide_title }}
+                </h3>
+
+                <p class="lh-normal mb-4 testimonials-p ">
+                  {{ block.settings.slide_review }}
+                </p>
+
+                <p class="fs-20">
+                  {{ block.settings.customer_name }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Custom Vertical Pagination With Arrows -->
+      <div class="custom-vertical-pagination">
+        <!-- Top Arrow -->
+        <div class="custom-arrow-2 custom-arrow-2-up">
+          <svg width="31" height="19" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0534 9.23744L30.1059 8.49804L30.1064 8.49502L30.1062 8.49498L30.1012 8.49425L30.0767 8.49046C30.0539 8.48688 30.0186 8.48116 29.9718 8.47304C29.8779 8.4568 29.7379 8.43104 29.5593 8.39383C29.2019 8.31937 28.6918 8.19944 28.0906 8.01907C26.8829 7.65675 25.3334 7.05829 23.9161 6.11341C22.5663 5.21355 21.5125 3.71468 20.7835 2.3783C20.4241 1.71928 20.1541 1.11932 19.9744 0.685055C19.8847 0.468278 19.8179 0.293737 19.774 0.174929C19.7521 0.115549 19.7359 0.0701675 19.7255 0.0404768L19.7142 0.00794601L19.7118 0.000921249L19.7115 0C19.7116 0.000127792 19.7116 0.000272751 19.0001 0.237444C18.2886 0.474615 18.2886 0.474794 18.2887 0.474991L18.2889 0.475471L18.2893 0.476739L18.2906 0.480505L18.2948 0.492882L18.3099 0.536462C18.3229 0.573666 18.3419 0.626917 18.3668 0.69449C18.4167 0.829588 18.4905 1.02223 18.5883 1.25858C18.7836 1.73057 19.0761 2.38061 19.4667 3.09658C20.2377 4.51021 21.4339 6.26134 23.0841 7.36148C23.7486 7.80451 24.4339 8.17638 25.1011 8.48744H0V9.98744H25.1011C24.4339 10.2985 23.7486 10.6704 23.0841 11.1134C21.4339 12.2135 20.2377 13.9647 19.4667 15.3783C19.0761 16.0943 18.7836 16.7443 18.5883 17.2163C18.4905 17.4527 18.4167 17.6453 18.3668 17.7804C18.3419 17.848 18.3229 17.9012 18.3099 17.9384L18.2948 17.982L18.2906 17.9944L18.2893 17.9981L18.2889 17.9994L18.2887 17.9999C18.2886 18.0001 18.2886 18.0003 19.0001 18.2374C19.7116 18.4746 19.7116 18.4748 19.7115 18.4749L19.7118 18.474L19.7142 18.4669L19.7255 18.4344C19.7359 18.4047 19.7521 18.3593 19.774 18.3C19.8179 18.1812 19.8847 18.0066 19.9744 17.7898C20.1541 17.3556 20.4241 16.7556 20.7835 16.0966C21.5125 14.7602 22.5663 13.2613 23.9161 12.3615C25.3334 11.4166 26.8829 10.8181 28.0906 10.4558C28.6918 10.2754 29.2019 10.1555 29.5593 10.0811C29.7379 10.0439 29.8779 10.0181 29.9718 10.0018C30.0186 9.99373 30.0539 9.988 30.0767 9.98443L30.1012 9.98064L30.1062 9.9799L30.1064 9.97987L30.1059 9.97685L30.0534 9.23744Z" fill="#213721"/>
+          </svg>
+        </div>
+        <div class="swiper-pagination custom-fixed-pagination">
+          {% assign total_blocks = section.blocks.size %}
+          {% assign max_dots = 4 %}
+          {% if total_blocks < max_dots %}
+            {% assign max_dots = total_blocks %}
+          {% endif %}
+
+          {% for block in section.blocks limit: max_dots %}
+            <svg
+              width="6"
+              height="6"
+              viewBox="0 0 6 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="custom-dot"
+              data-index="{{ forloop.index0 }}"
+            >
+              <rect
+                y="2.82843"
+                width="4"
+                height="4"
+                transform="rotate(-45 0 2.82843)"
+                class="dot-rect"
+              />
+            </svg>
+          {% endfor %}
+        </div>
+
+        <!-- Bottom Arrow -->
+        <div class="custom-arrow-2 custom-arrow-2-down">
+          <svg width="31" height="19" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0530444 9.23744L0.000496678 8.49804L0 8.49502L0.000254221 8.49498L0.00522179 8.49425L0.0297647 8.49046C0.0524989 8.48688 0.0877965 8.48116 0.134689 8.47304C0.2285 8.4568 0.368556 8.43104 0.54713 8.39383C0.904577 8.31937 1.41462 8.19944 2.01583 8.01907C3.22357 7.65675 4.773 7.05829 6.19032 6.11341C7.54011 5.21355 8.59399 3.71468 9.32292 2.3783C9.68239 1.71928 9.95239 1.11932 10.1321 0.685055C10.2218 0.468278 10.2886 0.293737 10.3325 0.174929C10.3544 0.115549 10.3706 0.0701675 10.381 0.0404768L10.3922 0.00794601L10.3946 0.000921249L10.3949 0C10.3949 0.000127792 10.3948 0.000272751 11.1063 0.237444C11.8179 0.474615 11.8178 0.474794 11.8177 0.474991L11.8176 0.475471L11.8171 0.476739L11.8159 0.480505L11.8117 0.492882L11.7966 0.536462C11.7835 0.573666 11.7646 0.626917 11.7396 0.69449C11.6897 0.829588 11.6159 1.02223 11.5181 1.25858C11.3228 1.73057 11.0303 2.38061 10.6398 3.09658C9.8687 4.51021 8.67258 6.26134 7.02237 7.36148C6.35783 7.80451 5.67251 8.17638 5.00535 8.48744H30.1063V9.98744H5.00535C5.67251 10.2985 6.35783 10.6704 7.02237 11.1134C8.67258 12.2135 9.8687 13.9647 10.6398 15.3783C11.0303 16.0943 11.3228 16.7443 11.5181 17.2163C11.6159 17.4527 11.6897 17.6453 11.7396 17.7804C11.7646 17.848 11.7835 17.9012 11.7966 17.9384L11.8117 17.982L11.8159 17.9944L11.8171 17.9981L11.8176 17.9994L11.8177 17.9999C11.8178 18.0001 11.8179 18.0003 11.1063 18.2374C10.3948 18.4746 10.3949 18.4748 10.3949 18.4749L10.3946 18.474L10.3922 18.4669L10.381 18.4344C10.3706 18.4047 10.3544 18.3593 10.3325 18.3C10.2886 18.1812 10.2218 18.0066 10.1321 17.7898C9.95239 17.3556 9.68239 16.7556 9.32292 16.0966C8.59399 14.7602 7.54011 13.2613 6.19032 12.3615C4.773 11.4166 3.22357 10.8181 2.01583 10.4558C1.41462 10.2754 0.904577 10.1555 0.54713 10.0811C0.368556 10.0439 0.2285 10.0181 0.134689 10.0018C0.0877965 9.99373 0.0524989 9.988 0.0297647 9.98443L0.00522179 9.98064L0.000254221 9.9799L0 9.97987L0.000496678 9.97685L0.0530444 9.23744Z" fill="#213721" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#product-testimonials-{{ section.id }}');
+    if (!section) return;
+
+    const swiperEl = section.querySelector('.testimonial-swiper-{{ section.id }}');
+    if (!swiperEl) return;
+
+    // Initialize Swiper (WITHOUT default pagination)
+    const swiper = new Swiper(swiperEl, {
+      loop: true,
+      spaceBetween: 30,
+    });
+
+    const dots = section.querySelectorAll('.custom-dot');
+
+    function updateActiveDot() {
+      if (!dots.length) return;
+
+      let realIndex = swiper.realIndex;
+      // Fix: modulo with total visible dots
+      let dotIndex = realIndex % dots.length;
+
+      dots.forEach((dot) => dot.classList.remove('swiper-pagination-bullet-active'));
+      dots[dotIndex].classList.add('swiper-pagination-bullet-active');
+    }
+
+    swiper.on('slideChange', updateActiveDot);
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', function () {
+        swiper.slideToLoop(parseInt(this.dataset.index));
+      });
+    });
+
+    updateActiveDot();
+
+    const arrowUp = section.querySelector('.custom-arrow-2-up');
+    const arrowDown = section.querySelector('.custom-arrow-2-down');
+
+    if (arrowUp) {
+      arrowUp.addEventListener('click', function () {
+        swiper.slidePrev();
+      });
+    }
+
+    if (arrowDown) {
+      arrowDown.addEventListener('click', function () {
+        swiper.slideNext();
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Testimonials",
+  "settings": [
+    {
+      "type": "range",
+      "id": "review_font_size",
+      "label": "Review Font Size",
+      "min": 16,
+      "max": 45,
+      "step": 1,
+      "unit": "px",
+      "default": 42
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial_slide",
+      "name": "Testimonial Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        },
+        {
+          "type": "text",
+          "id": "slide_title",
+          "label": "Title",
+          "default": "Holocena"
+        },
+        {
+          "type": "textarea",
+          "id": "slide_review",
+          "label": "Review Text",
+          "default": "I've been feeling pretty stressed with my skin lately, so I picked up a set of HOLOCENA skincare. oh my goodness!. It was AMAZING. My skin felt so soft and moisturized"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name",
+          "default": "John Doe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Testimonials Slider",
+      "blocks": [{ "type": "testimonial_slide" }, { "type": "testimonial_slide" }, { "type": "testimonial_slide" }]
+    }
+  ]
+}
+{% endschema %}

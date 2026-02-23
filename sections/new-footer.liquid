@@ -35,6 +35,18 @@
             {% endif %}
           {% endfor %}
         </div>
+        {% comment %} <div class="footer-icons d-flex gap-36">
+          {% assign social_count = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'social' and social_count < 3 %}
+              <a href="{{ block.settings.link }}" target="_blank">
+                {{ block.settings.icon_svg }}
+              </a>
+              {% assign social_count = social_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+         {% endcomment %}
       </div>
 
       <!-- Menu 1 -->
@@ -178,6 +190,7 @@
       "label": "Bottom Menu"
     }
   ],
+  "max_blocks": 3,
   "blocks": [
     {
       "type": "social",

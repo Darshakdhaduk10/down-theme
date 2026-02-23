@@ -401,6 +401,9 @@
   .ms-5 {
     margin-left: 3rem !important;
   }
+  .mb-80 {
+    margin-bottom: 80px;
+  }
   
   @media (min-width: 576px) {
     .m-sm-0 {

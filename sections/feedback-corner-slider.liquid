@@ -51,10 +51,25 @@
           {% endfor %}
         </div>
 
+        {% comment %} <div class="swiper-controls">
+          <span class="swiper-button-prev custom-arrow"></span>
+          <span class="swiper-button-next custom-arrow"></span>
+        </div> {% endcomment %}
+
         <div class="swiper-controls">
-          <div class="swiper-button-prev custom-arrow">1</div>
-          <div class="swiper-button-next custom-arrow">2</div>
+          <span class="swiper-button-prev custom-arrow">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="#224f34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        
+          <span class="swiper-button-next custom-arrow">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M9 6L15 12L9 18" stroke="#224f34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </div>
+        
       </div>
     </div>
   </div>
@@ -68,7 +83,7 @@
     const feedbackSwiper = new Swiper('.feedback-swiper', {
       loop: true, // false ને true કરો
       spaceBetween: 17,
-      autoplay: {
+      autoplay: { 
         delay: 3000,
         disableOnInteraction: false,
       },
